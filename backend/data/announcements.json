@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Ward Meeting",
+    "description": "Meeting for ward development",
+    "wardNo": 5,
+    "date": "2026-01-05"
+  },
+  {
+    "id": 2,
+    "title": "Training Program",
+    "description": "Free computer training for citizens",
+    "wardNo": 3,
+    "date": "2026-01-10"
+  }
+]
