@@ -8,7 +8,7 @@ export default function Documents() {
 
   // Fetch documents from backend 
   useEffect(() => {
-    fetch("http://localhost:5000/api/documents")
+    fetch("http://localhost:5000/api/v1/documents")
       .then((res) => res.json())
       .then((data) => {
         setDocumentsData(data); // set API data
