@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "title": "Citizenship Certificate",
+    "requirements": [
+      "Birth certificate",
+      "Parents citizenship copy",
+      "Ward recommendation letter"
+    ],
+    "processingTime": "3–5 working days",
+    "office": "District Administration Office"
+  },
+  {
+    "id": 2,
+    "title": "National ID (NID)",
+    "requirements": [
+      "Birth certificate",
+      "Citizenship certificate",
+      "Photo"
+    ],
+    "processingTime": "5–7 working days",
+    "office": "District Administration Office"
+  }
+]
