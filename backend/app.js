@@ -1,17 +1,21 @@
-const express = require("express");  // bring Express
-const cors = require("cors");        // bring CORS
+const express = require("express");
+const cors = require("cors");
 
-const app = express();  // create app (server)
+const app = express();  // create server
 
-app.use(cors());        // allow frontend to ask questions
-app.use(express.json());// allow backend to read JSON data
+// Middlewares
+app.use(cors());          // allow frontend to call backend
+app.use(express.json());  // parse JSON in POST requests
 
 // Test endpoint
 app.get("/", (req, res) => {
   res.send("Smart Ward Portal API is working!");
 });
 
-module.exports = app;
+// Routes
+app.use("/api/v1/documents", require("./routes/documents"));
+app.use("/api/v1/announcements", require("./routes/announcements"));
+app.use("/api/v1/budget", require("./routes/budget"));
 
-const documentsRoutes = require("./routes/documents"); // import the route
-app.use("/api/v1/documents", documentsRoutes);         // use route at /api/v1/documents
+// Export app for server.js
+module.exports = app;
