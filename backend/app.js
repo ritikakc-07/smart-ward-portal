@@ -6,10 +6,12 @@ app.use(cors());
 app.use(express.json());
 
 // Import routes
-const budgetRoute = require("./routes/budget");  // route file
+const wardsRoute = require("./routes/wards");
+const budgetRoute = require("./routes/budget");
 
 // Use routes
-app.use("/api/budget", budgetRoute);  // all /api/budget requests go to budget.js
+app.use("/api/wards", wardsRoute);
+app.use("/api/budget", budgetRoute);
 
 // Start server
 const PORT = 5000;

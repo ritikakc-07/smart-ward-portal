@@ -1,43 +1,5 @@
-{
-  "name": "Ward 1",
-  "population": 5000,
-  "totalBudget": 1000000,
-  "budgetCategories": [
-    {
-      "id": 1,
-      "title": "Education",
-      "allocated": 400000,
-      "used": 250000,
-      "remaining": 150000
-    },
-    {
-      "id": 2,
-      "title": "Health",
-      "allocated": 300000,
-      "used": 150000,
-      "remaining": 150000
-    },
-    {
-      "id": 3,
-      "title": "Infrastructure",
-      "allocated": 300000,
-      "used": 100000,
-      "remaining": 200000
-    }
-  ],
-  "totalAllowanceBudget": 200000,
-  "allowanceCategories": [
-    {
-      "id": 1,
-      "title": "Elderly Allowance",
-      "allocated": 120000,
-      "lastDistribution": "2025-12-25"
-    },
-    {
-      "id": 2,
-      "title": "Widow Allowance",
-      "allocated": 80000,
-      "lastDistribution": "2025-12-25"
-    }
-  ]
-}
+[
+  { "id": 1, "name": "Ward 5, Kathmandu", "population": 1200 },
+  { "id": 2, "name": "Ward 10, Lalitpur", "population": 950 },
+  { "id": 3, "name": "Ward 3, Pokhara", "population": 1100 }
+]
