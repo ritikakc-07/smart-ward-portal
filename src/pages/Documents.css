@@ -139,24 +139,4 @@
   text-align: center;
 }
 
-.tag {
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
 
-.tag.upcoming {
-  background: #e0f2fe;
-  color: #0369a1;
-}
-
-.tag.ongoing {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-.tag.completed {
-  background: #f3f4f6;
-  color: #4b5563;
-}
