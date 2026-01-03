@@ -1,0 +1,142 @@
+/* ================= ROOT COLORS ================= */
+:root {
+  --nepal-red: #dc143c;
+  --nepal-blue: #003893;
+  --soft-bg: #f8f9fc;
+}
+
+/* ================= PAGE LAYOUT ================= */
+.documents-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.documents-intro {
+  color: #555;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+/* ================= INFO SECTION ================= */
+.documents-info-card {
+  background: #f9fafb;
+  border-left: 5px solid var(--nepal-red);
+  padding: 18px 22px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 700px;
+  color: #444;
+}
+
+/* Feature list */
+.documents-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.feature {
+  font-size: 16px;
+  background: linear-gradient(90deg, #fdecec, #eef4ff);
+  padding: 12px 22px;
+  border-radius: 999px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* ================= DROPDOWN ================= */
+.service-dropdown {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.service-dropdown select {
+  width: 420px;
+  padding: 16px 20px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background-color: #f3f6fb;
+  cursor: pointer;
+}
+
+.service-dropdown select:focus {
+  outline: none;
+  border-color: var(--nepal-blue);
+  box-shadow: 0 0 0 3px rgba(0, 56, 147, 0.15);
+}
+
+/* ================= DETAILS CARD ================= */
+.documents-card {
+  margin-top: 35px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-description {
+  margin: 12px 0 20px;
+  color: #555;
+  font-size: 16px;
+}
+
+/* Meta info */
+.service-meta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #444;
+  background-color: #edf2f7;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+/* ================= DOCUMENT LIST ================= */
+.documents-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.documents-list li {
+  background: #fafafa;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+/* ================= STATUS ================= */
+.status {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.status.success {
+  background: #e6f7ec;
+  color: #0f5132;
+}
+
+.status.warning {
+  background: #fff3cd;
+  color: #664d03;
+}
+
+/* ================= NOTE ================= */
+.note {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+

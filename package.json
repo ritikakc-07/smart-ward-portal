@@ -1,20 +1,38 @@
 {
-  "name": "smart-ward-backend",
+  "name": "smart-ward-portal",
   "version": "1.0.0",
-  "description": "Backend for Smart Ward Portal",
-  "type": "commonjs",
-  "main": "backend/server.js",
-"scripts": {
-  "start": "node backend/server.js",
-  "dev": "nodemon backend/server.js"
-},
-
+  "private": true,
+  "type": "module",
+  "description": "Smart Ward Portal - Frontend (React) + Backend (Express) combined",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "nodemon backend/server.js",
+    "dev:frontend": "cd frontend && vite",
+    "start:backend": "node backend/server.js",
+    "build:frontend": "cd frontend && vite build",
+    "preview:frontend": "cd frontend && vite preview",
+    "lint:frontend": "cd frontend && eslint ."
+  },
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.22.1",
-    "mysql": "^2.18.1"
+    "cors": "^2.8.5",
+    "mysql": "^2.18.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.11.0",
+    "concurrently": "^8.2.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "vite": "^7.2.4",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0"
   }
 }
