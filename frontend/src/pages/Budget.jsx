@@ -1,21 +1,30 @@
 import { useEffect, useState } from "react";
 import "./Budget.css";
 
-export default function Budget({ selectedWard }) {
+export default function Budget({ selectedWard = 1 }) {
   const [budgets, setBudgets] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/budget")
+    if (!selectedWard) return;
+
+    fetch(`http://localhost:5000/api/budget/${selectedWard}`)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch budget");
-        }
+        if (!res.ok) throw new Error("Failed to fetch budget");
         return res.json();
       })
       .then((data) => {
-        setBudgets(data);
+        // Transform backend data to match your UI structure
+        const items = data.utilization.map((u) => ({
+          category: u.label,
+          percent: u.percentage,
+        }));
+
+        setBudgets({
+          totalBudget: data.totalBudget,
+          items,
+        });
         setLoading(false);
       })
       .catch((err) => {
@@ -23,21 +32,16 @@ export default function Budget({ selectedWard }) {
         setError("Could not load budget info");
         setLoading(false);
       });
-  }, []);
+  }, [selectedWard]);
 
-  if (loading) {
-    return <div className="budget-page"><p>Loading budget info…</p></div>;
-  }
-
-  if (error) {
-    return <div className="budget-page"><p className="error">{error}</p></div>;
-  }
+  if (loading) return <div className="budget-page"><p>Loading budget info…</p></div>;
+  if (error) return <div className="budget-page"><p className="error">{error}</p></div>;
 
   const { totalBudget, items } = budgets || {};
 
   return (
     <div className="budget-page">
-      <h1 className="budget-title">💰 Budget Transparency – {selectedWard}</h1>
+      <h1 className="budget-title">💰 Budget Transparency – Ward {selectedWard}</h1>
 
       <p className="budget-subtitle">
         Transparent overview of ward-level budget allocation and utilization
@@ -47,9 +51,7 @@ export default function Budget({ selectedWard }) {
       {/* Budget Summary */}
       <div className="budget-summary">
         <h2>Total Ward Budget (FY 2080/81)</h2>
-        <p className="amount">
-          NPR {totalBudget?.toLocaleString() ?? "N/A"}
-        </p>
+        <p className="amount">NPR {totalBudget?.toLocaleString() ?? "N/A"}</p>
         <p className="summary-note">
           Allocated for development, social welfare, and essential public services.
         </p>

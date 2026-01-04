@@ -1,9 +1,12 @@
+/* Container */
 .budget-page {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1100px; /* merged duplicate */
   margin: 40px auto;
   padding: 0 20px;
 }
 
+/* Title & Subtitle */
 .budget-title {
   text-align: center;
   font-size: 36px;
@@ -17,6 +20,7 @@
   margin-bottom: 40px;
 }
 
+/* Budget Summary */
 .budget-summary {
   background: #f0f9ff;
   padding: 24px;
@@ -35,12 +39,18 @@
   color: #2563eb;
 }
 
+.summary-note {
+  color: #555;
+}
+
+/* Budget Chart */
 .budget-chart h2 {
   margin-bottom: 24px;
   border-left: 5px solid #2563eb;
   padding-left: 12px;
 }
 
+/* Individual bar items */
 .bar-item {
   display: flex;
   align-items: center;
@@ -48,37 +58,57 @@
   margin-bottom: 18px;
 }
 
-.bar-item span {
-  width: 220px;
+/* Category label */
+.bar-item span.label {
+  flex-shrink: 0;
+  width: 180px; /* responsive */
   font-weight: 500;
 }
 
+/* Bar container */
 .bar {
   flex: 1;
+  min-width: 50px;
   height: 18px;
   background: #e5e7eb;
   border-radius: 10px;
   overflow: hidden;
 }
 
+/* Bar fill */
 .fill {
   height: 100%;
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
   border-radius: 10px;
+  transition: width 1s ease-in-out; /* smooth animation */
 }
 
+/* Percent label */
 .percent {
   width: 50px;
   font-weight: 600;
+  text-align: right;
+  min-width: 40px;
 }
 
+/* Note below chart */
 .note {
   margin-top: 30px;
   font-size: 14px;
   color: #666;
   text-align: center;
 }
-.budget-page {
-  width: 100%;
-  max-width: 1100px;
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .bar-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bar-item span.label,
+  .percent {
+    width: 100%;
+    text-align: left;
+  }
 }

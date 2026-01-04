@@ -18,12 +18,11 @@ export const fetchDashboard = async () => {
 };
 
 // Fetch budget.json for a specific ward
-export const fetchBudget = async () => {
-  const res = await fetch("http://localhost:5000/api/budget");
+export const fetchBudget = async (wardId) => {
+  const res = await fetch(`http://localhost:5000/api/budget/${wardId}`);
   if (!res.ok) throw new Error("Failed to fetch budget");
   return res.json();
 };
-
 
 
 // Fetch announcements.json
