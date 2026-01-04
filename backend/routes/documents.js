@@ -1,15 +1,27 @@
-const express = require('express');
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+
 const router = express.Router();
 
-// Sample documents data
-const documents = [
-  { id: 1, title: "Citizen ID Guidelines", link: "/docs/citizen-id.pdf" },
-  { id: 2, title: "Ward Tax Rules", link: "/docs/ward-tax.pdf" },
-  { id: 3, title: "Local Election Info", link: "/docs/election.pdf" }
-];
+// GET all documents/services
+router.get("/", (req, res) => {
+  const filePath = path.join(__dirname, "../data/documents.json");
 
-router.get('/', (req, res) => {
-  res.json(documents);
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading documents file:", err);
+      return res.status(500).json({ error: "Could not read documents file" });
+    }
+
+    try {
+      const documents = JSON.parse(data);
+      res.json(documents); // send array of services
+    } catch (parseErr) {
+      console.error("Error parsing JSON:", parseErr);
+      res.status(500).json({ error: "Invalid documents JSON" });
+    }
+  });
 });
 
 module.exports = router;
